@@ -1,4 +1,4 @@
-clear;
+    clear;
 [y, fs] = audioread('sound.wav');    %Åª¨ú­µÀÉ
                                      %y¬°¦V¶q¡Afs¬°¨ú¼ËÀW²v
 time=(1:length(y))/fs;               %®É¶¡ÅÜ¼Æ
@@ -36,6 +36,7 @@ for i = 1:frameNumber-1        %zero-cross rate:
         end
 end
 
+
 zerotime = (1:length(zerorate))/fs*512;    %¹ïÀ³frameªº®É¶¡
 
 %pitch ­µ°ª¡A¨Ï¥Îacfªk
@@ -58,8 +59,8 @@ for i = 1:int16(length(y)/512)-1    %¨Ï¥Îacf:±N¤@¬q­µ®Ø¥­²¾¤@¬q®É¶¡¡AµM«á¸ò­ì¥»ª
         end
         acf(j+1) = sum;
     end
-        [nothing , pitch(i)]= max(acf(44:length(acf)));    %¶}ÀYªº³Ì¤j­È©P³ò©¿²¤
-        pitch(i) = fs / (pitch(i) + 44);
+        [nothing , pitch(i)]= max(acf(100:length(acf)));    %ACF¶}ÀYªº³Ì¤j­È©P³ò©¿²¤
+        pitch(i) = fs / (pitch(i) + 100);
         
 end
 acftime = (1:length(pitch))/fs*512;   %¹ïÀ³frameªº®É¶¡
